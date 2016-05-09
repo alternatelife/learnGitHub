@@ -6,7 +6,9 @@ public class Main {
 	    StudentsGrades [] pISES = new StudentsGrades[3];
         pISES[0] = create("Mohammad Ehtesham", 94,91,92);
         pISES[1] = create("Farah Sethi", 93, 94, 90);
-        pISES[2] = create("Ahmed Ehtesham", 93, 89, 95);
+        pISES[2] = create("Ahmed Ehtesham", 93, 92, 95);
+        String nameOfHighestScorer = "NA";
+        int highestTotal = 0;
 
         for (StudentsGrades foo: pISES) {
             foo.findTotal();
@@ -15,9 +17,16 @@ public class Main {
             System.out.print(": ");
             System.out.print(foo.total);
             System.out.println("");
+            if (highestTotal >= foo.total){
+                continue;
+            }
+            else {
+                nameOfHighestScorer = foo.name;
+                highestTotal = foo.total;
+            }
         }
-
-
+        System.out.println(nameOfHighestScorer);
+        System.out.println(highestTotal);
     }
 
     public static StudentsGrades create(String name, int mathMarks, int englishMarks, int compSciMarks) {
